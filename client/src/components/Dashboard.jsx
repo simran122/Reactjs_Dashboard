@@ -47,7 +47,7 @@ function Dashboard() {
         // Fetch data from the API
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/collection');
+                const response = await fetch('https://reactjs-dashboard-tau.vercel.app/');
                 const jsonData = await response.json();
                 setDetail(jsonData.users);
                 console.log(jsonData.users);
