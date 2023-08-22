@@ -10,5 +10,5 @@ app.use(cors());
 
 
 app.use(bodyParser.json());
-app.use('/collection', usersRoutes);
+app.use('/', usersRoutes);
 app.listen(port, () => console.log(`server running on port:http://localhost:${port}`));
