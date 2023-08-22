@@ -1,0 +1,45 @@
+.logo {
+    mix-blend-mode: multiply;
+
+
+}
+
+.main {
+    transition: background-color 0.3s ease-in-out;
+    z-index: 1000
+}
+
+.scrolling .navbar {
+    background-color: rgba(245, 245, 245, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width:900px) {
+    .logo {
+        display: block;
+        flex-grow: 1;
+    }
+
+}
+
+@media (min-width:900px) {
+    .logo {
+        display: none;
+
+    }
+}
+
+@media (min-width:780px) {
+    .search {
+        display: block;
+    }
+
+}
+
+@media (max-width:780px) {
+    .search {
+        display: none;
+    }
+
+}
+
