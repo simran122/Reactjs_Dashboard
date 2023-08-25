@@ -1,6 +1,6 @@
 import React from 'react'
 import { createContext, useContext, useState, useEffect } from 'react'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider,sendPasswordResetEmail } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup,sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from './firebase'
 const UserAuthContext = createContext();
 
@@ -22,10 +22,7 @@ function UserAuthContextProvider({ children }) {
         return sendPasswordResetEmail(auth, email)
     }
 
-     function facebookSignIn() {
-        const facebookAuthProvider = new FacebookAuthProvider();
-        return signInWithPopup(auth, facebookAuthProvider);
-    }
+   
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -52,7 +49,7 @@ function UserAuthContextProvider({ children }) {
         }
     }, [user]);
 
-    return <UserAuthContext.Provider value={{ user, signUp, logIn, googleSignIn, loading,reset,facebookSignIn }}>{children}</UserAuthContext.Provider>
+    return <UserAuthContext.Provider value={{ user, signUp, logIn, googleSignIn, loading,reset }}>{children}</UserAuthContext.Provider>
 
 }
 
