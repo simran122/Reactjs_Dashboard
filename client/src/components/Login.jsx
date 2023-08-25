@@ -17,7 +17,7 @@ function Login() {
     };
     const [error, setError] = useState("")
     const navigate = useNavigate();
-    const { logIn, googleSignIn } = useUSerAuth();
+    const { logIn, googleSignIn , facebookSignIn } = useUSerAuth();
     const handleSignIn = async (e) => {
         e.preventDefault();
         setError("")
@@ -35,6 +35,19 @@ function Login() {
         e.preventDefault();
         try {
             await googleSignIn();
+            navigate("/Dashboard")
+        } catch (err) {
+            setError(err.message)
+
+        }
+
+    }
+
+    
+    const facebookSign = async (e) => {
+        e.preventDefault();
+        try {
+            await facebookSignIn();
             navigate("/Dashboard")
         } catch (err) {
             setError(err.message)
@@ -75,20 +88,11 @@ function Login() {
                             <Typography variant='h6' sx={{ color: "primary.light" }}>Sign in with Google</Typography>
 
                         </Box>
-                        <Box sx={{ display: "flex", gap: 1, alignItems: "center", bgcolor: "white", border: "1px solid transparent", p: "0.5rem 2rem", borderRadius: "15px", maxWidth: { xs: "28rem", sm: "15rem" }, justifyContent: "center", flexGrow: 1 }}>
+                        <Box onClick={facebookSign} sx={{ display: "flex", gap: 1, alignItems: "center", bgcolor: "white", border: "1px solid transparent", p: "0.5rem 2rem", borderRadius: "15px", maxWidth: { xs: "28rem", sm: "15rem" }, justifyContent: "center", flexGrow: 1 }}>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
-                                <g clipPath="url(#clip0_0_355)">
-                                    <path d="M6.34516 1.21952C7.27201 0.00716167 8.56055 0.00125122 8.56055 0.00125122C8.56055 0.00125122 8.75222 1.14107 7.83144 2.23908C6.84828 3.41151 5.73078 3.21966 5.73078 3.21966C5.73078 3.21966 5.52094 2.29759 6.34516 1.21952ZM5.84866 4.0181C6.32548 4.0181 7.21043 3.36763 8.36232 3.36763C10.3451 3.36763 11.1251 4.76781 11.1251 4.76781C11.1251 4.76781 9.59954 5.54189 9.59954 7.42017C9.59954 9.53904 11.5 10.2693 11.5 10.2693C11.5 10.2693 10.1715 13.9801 8.37708 13.9801C7.55292 13.9801 6.91217 13.4289 6.04378 13.4289C5.15883 13.4289 4.28065 14.0007 3.70868 14.0007C2.0701 14.0007 0 10.4806 0 7.65098C0 4.86704 1.7522 3.40664 3.39569 3.40664C4.46411 3.40664 5.29321 4.0181 5.84866 4.0181Z" fill="#999999" />
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_0_355">
-                                        <rect width="11.5" height="14" fill="white" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px" fill="#3F51B5"><path fill="#3F51B5" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z" /><path fill="#FFF" d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z" /></svg>
 
-                            <Typography variant='h6' sx={{ color: "primary.light" }}>Sign in with Apple</Typography>
+                            <Typography variant='h6' sx={{ color: "primary.light" }}>Sign in with Facebook</Typography>
                         </Box>
 
                     </Box>
