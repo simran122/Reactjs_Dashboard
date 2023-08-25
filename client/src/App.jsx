@@ -9,6 +9,7 @@ import SignUp from './components/SignUp';
 import UserAuthContextProvider from './UserAuthContext';
 import Dashboard from './components/Dashboard'
 import ProtectedRoute from './ProtectedRoute';
+import ResetPassword from './components/ResetPassword';
 const responsiveTheme = responsiveFontSizes(Theme)
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
 
             <Route path="/" element={<Login />} />
             <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/ResetPassword" element={<ResetPassword />} />
             <Route path="/Dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           </Routes>
 
