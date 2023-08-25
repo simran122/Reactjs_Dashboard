@@ -104,8 +104,9 @@ function Login() {
                         <input style={{ marginTop: "0.7rem ", width: "100%", height: "2.4rem", borderRadius: "15px", outline: "none ", border: "none", backgroundColor: "#F5F5F5", padding: "1rem" }} type='email' id="email" name="email" required value={form1.email} onChange={handleChange} />
                         <label htmlFor='password'><Typography variant='h5' sx={{ fontFamily: "Lato", mt: "1rem" }}>Password</Typography></label>
                         <input style={{ marginTop: "0.7rem ", width: "100%", height: "2.4rem", borderRadius: "15px", outline: "none ", border: "none", backgroundColor: "#F5F5F5", padding: "1rem" }} type='password' id="password" name="password" required value={form1.password} onChange={handleChange} />
-
+                        <Link to="/ResetPassword">
                         <Typography variant='h5' sx={{ color: "info.main", mt: "0.7rem", fontFamily: "Lato", ml: "0.4rem" }}>Forgot password?</Typography>
+                        </Link>
                         <Button onClick={handleSignIn} variant="contained" sx={{ mt: "1rem", width: "100%", borderRadius: "15px", mb: "2rem" }}>Sign In</Button>
                     </Box>
                     <Stack direction="row" spacing={1} sx={{ mt: "1rem", }} justifyContent="center">
